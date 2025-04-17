@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Lista de personas</title>
+</head>
+<body>
+    <h1>Lista de personas</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+        </tr>
+        <tr th:each="persona : ${lista}">
+            <td th:text="${persona.nombre}">Nombre</td>
+            <td th:text="${persona.apellidos}">Apellidos</td>
+            <td th:text="${persona.edad}">Edad</td>
+            <td>
+            	<a th:href="@{borrar(nombre=${persona.nombre})}">Borrar</a>
+            </td>
+             <td>
+            	<a th:href="@{examenes(nombre=${persona.nombre})}">Buscar Examenes</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{formulario}">Formulario nuevo</a>
+</body>
+</html>
